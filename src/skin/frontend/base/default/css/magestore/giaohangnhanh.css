@@ -1,0 +1,31 @@
+.giaohangnhanh-detail {
+    clear: both;
+}
+.giaohangnhanh-detail .lable{
+	width:100%;
+	clear:both;
+}
+.giaohangnhanh-detail .input-box{
+	padding-left: 10px;
+}
+div.shipping-popup-overlay {
+    width: 100%;
+    background: #000000;
+    height: 1977px;
+    display: none;
+    position: fixed;
+    opacity: 0.2;
+    filter: alpha(opacity=50);
+    top: 0;
+    left: 0;
+    z-index: 999999;
+}
+div.shipping-content {
+	width: 30px;
+    background: url('giaohangnhanh/images/loading.gif') no-repeat center;
+    position: fixed;
+	top:50%;
+	left:50%;
+    height: 30px;
+    z-index: 9999999;
+}

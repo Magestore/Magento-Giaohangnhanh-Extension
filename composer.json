@@ -1,0 +1,7 @@
+{
+    "name": "magestore/giaohangnhanh",
+    "license": ["GPL-3.0"],
+    "type": "magento-module",
+    "description": "Giao Hang Nhanh extension for Magento",
+    "homepage": "https://github.com/Magestore/Magento-Giaohangnhanh-Extension.git"
+}

@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_GiaoHangNhanh
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <modules>
+        <Magestore_GiaoHangNhanh>
+            <version>0.1.0</version>
+        </Magestore_GiaoHangNhanh>
+    </modules>
+    <frontend>
+        <routers>
+            <giaohangnhanh>
+                <use>standard</use>
+                <args>
+                    <module>Magestore_GiaoHangNhanh</module>
+                    <frontName>giaohangnhanh</frontName>
+                </args>
+            </giaohangnhanh>
+        </routers>
+        <layout>
+            <updates>
+                <giaohangnhanh>
+                    <file>giaohangnhanh.xml</file>
+                </giaohangnhanh>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_GiaoHangNhanh>
+                    <files>
+                        <default>Magestore_GiaoHangNhanh.csv</default>
+                    </files>
+                </Magestore_GiaoHangNhanh>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Magestore_GiaoHangNhanh before="Mage_Adminhtml">Magestore_GiaoHangNhanh_Adminhtml</Magestore_GiaoHangNhanh>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <giaohangnhanh>
+                    <file>giaohangnhanh.xml</file>
+                </giaohangnhanh>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_GiaoHangNhanh>
+                    <files>
+                        <default>Magestore_GiaoHangNhanh.csv</default>
+                    </files>
+                </Magestore_GiaoHangNhanh>
+            </modules>
+        </translate>
+    </adminhtml>   
+    <global>
+        <models>
+            <giaohangnhanh>
+                <class>Magestore_GiaoHangNhanh_Model</class>
+                <resourceModel>giaohangnhanh_mysql4</resourceModel>
+            </giaohangnhanh>
+            <giaohangnhanh_mysql4>
+                <class>Magestore_GiaoHangNhanh_Model_Mysql4</class>
+                <entities>
+                    <giaohangnhanh>
+                        <table>giaohangnhanh</table>
+                    </giaohangnhanh>
+                </entities>
+            </giaohangnhanh_mysql4>
+        </models>
+        <resources>
+            <giaohangnhanh_setup>
+                <setup>
+                    <module>Magestore_GiaoHangNhanh</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </giaohangnhanh_setup>
+            <giaohangnhanh_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </giaohangnhanh_write>
+            <giaohangnhanh_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </giaohangnhanh_read>
+        </resources>
+        <blocks>
+            <giaohangnhanh>
+                <class>Magestore_GiaoHangNhanh_Block</class>
+            </giaohangnhanh>
+        </blocks>
+        <helpers>
+            <giaohangnhanh>
+                <class>Magestore_GiaoHangNhanh_Helper</class>
+            </giaohangnhanh>
+        </helpers>
+        <sales>
+            <quote>
+                <totals>
+                    <giaohangnhanh>
+                        <class>giaohangnhanh/total_shipping</class>
+                        <after>grand_total</after>
+                    </giaohangnhanh>
+                </totals>
+            </quote>
+        </sales>
+        <fieldsets>
+            <sales_convert_quote_address>
+                <delivery>
+                    <to_order>*</to_order>
+                </delivery>
+                <pickhub>
+                    <to_order>*</to_order>
+                </pickhub>
+                <service>
+                    <to_order>*</to_order>
+                </service>
+            </sales_convert_quote_address>
+        </fieldsets>
+        <events>
+            <sales_order_save_after> 
+                <observers>
+                    <giaohangnhanh_observers>
+                        <class>giaohangnhanh/observer</class>
+                        <method>salesOrderSaveAfter</method>
+                    </giaohangnhanh_observers>
+                </observers>
+            </sales_order_save_after>
+        </events> 
+    </global>
+    <default>
+        <carriers>
+            <giaohangnhanh>
+                <active>1</active>
+                <model>giaohangnhanh/carrier_feeshipping</model>
+                <title>Giao Hang Nhanh</title>
+                <name>Giao Hang Nhanh</name>
+                <sort_order>1</sort_order>
+            </giaohangnhanh>
+        </carriers>
+    </default>	
+    <crontab>
+        <jobs>
+            <giaohangnhanh>
+                <schedule>
+                    <cron_expr>10 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>giaohangnhanh/observer::updateOrderInfo</model>
+                </run>
+            </giaohangnhanh>
+        </jobs>
+    </crontab>
+</config>

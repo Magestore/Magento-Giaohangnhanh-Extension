@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_GiaoHangNhanh
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <menu>
+        <giaohangnhanh module="giaohangnhanh" translate="title">
+            <title>Giao Hang Nhanh</title>
+            <sort_order>71</sort_order>
+            <children>
+                <giaohangnhanh module="giaohangnhanh" translate="title">
+                    <title>Shipping Manager</title>
+                    <sort_order>0</sort_order>
+                    <action>adminhtml/giaohangnhanh</action>
+                </giaohangnhanh>
+                <settings module="giaohangnhanh" translate="title">
+                    <title>Settings</title>
+                    <sort_order>1000</sort_order>
+                    <action>adminhtml/system_config/edit/section/carriers</action>
+                </settings>
+            </children>
+        </giaohangnhanh>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <giaohangnhanh module="giaohangnhanh" translate="title">
+                                        <title>Giao Hang Nhanh</title>
+                                        <sort_order>71</sort_order>
+                                    </giaohangnhanh>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <giaohangnhanh module="giaohangnhanh" translate="title">
+                        <title>Giao Hang Nhanh</title>
+                        <sort_order>71</sort_order>
+                        <children>
+                            <giaohangnhanh module="giaohangnhanh" translate="title">
+                                <title>Shipping Manager</title>
+                                <sort_order>0</sort_order>
+                            </giaohangnhanh>
+                            <settings module="giaohangnhanh" translate="title">
+                                <title>Settings</title>
+                                <sort_order>1000</sort_order>
+                            </settings>
+                        </children>
+                    </giaohangnhanh>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
