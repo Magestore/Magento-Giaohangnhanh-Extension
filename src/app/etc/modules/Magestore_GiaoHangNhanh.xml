@@ -24,7 +24,7 @@
     <modules>
         <Magestore_GiaoHangNhanh>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         </Magestore_GiaoHangNhanh>
     </modules>
 </config>
