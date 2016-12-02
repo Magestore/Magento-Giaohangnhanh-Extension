@@ -65,7 +65,7 @@ GiaoHangNhanh.prototype = {
 	},
 	
 	changePickHub: function(el) {
-		if(typeof $(this.pickhub_container).down('#pickhub') == 'undefined' || typeof $(this.pickhub_container) == 'undefined' || !$(this.pickhub_container))
+		if($(this.pickhub_container) && typeof $(this.pickhub_container).down('#pickhub') == 'undefined' || typeof $(this.pickhub_container) == 'undefined' || !$(this.pickhub_container))
 			return this;
 		var parrent = this;
 		if(typeof $(this.cityInput) == 'undefined' && $(this.cityInput).value)
